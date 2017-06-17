@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="">
+    <button class="btn btn-primary" routerLink="view/" >Visualizar</button>
+    <button class="btn btn-primary" routerLink="novo/" >Novo</button>
+  </div>
+  <hr/>
+  <div *ngIf="forms$ | async as inputs; else loading">
+    <table class="table table-striped">
+      <th>Key:</th>
+      <th>Label:</th>
+      <th>Nome:</th>
+      <th>Type:</th>
+      <th>Required:</th>
+      <th>Placeholder:</th>
+      <th>Ordem:</th>
+      <tr *ngFor="let input of inputs; count as count; index as i">
+        <td>
+          {{input.key}}
+        </td>
+        <td>
+          {{input.label}}
+        </td>
+        <td>
+          {{input.name}}
+        </td>
+        <td>
+          {{input.type}}
+        </td>
+        <td>
+          {{input.required}}
+        </td>
+        <td>
+          {{input.placeholder}}
+        </td>
+        <td>
+          {{input.order}}
+        </td>
+        <td>
+          <button class="btn btn-primary" (click)="remove(input._id)">Remover</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <ng-template #loading>Loading...</ng-template>
+</div>

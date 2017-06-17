@@ -1,0 +1,11 @@
+<dynamic-form *ngIf="questions" [questions]="questions" (notify)="onNotify($event)"></dynamic-form>
+
+<div style="text-align:center">
+<pre *ngIf="clienteJSON">
+  <code>
+    <div class="d-inline-block bg-warning">
+    {{clienteJSON}}
+    </div>
+  </code>
+</pre>
+</div>
